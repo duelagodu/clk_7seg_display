@@ -135,23 +135,22 @@ typedef struct Display
         delay(speed);                 //D
     }
 
+    // Draws a custom charecter on the display
+    void draw_custom_char(int* custom_char, int pos){
+        for(int i = 0; i < 7; i++) {
+            digitalWrite(this->num[i], custom_char[i]);
+        }
+        for(int i = 0; i < 4; i++) {
+            digitalWrite(this->index[i], HIGH);
+            if(i == pos) {
+                digitalWrite(this->index[i], LOW);
+            }
+        }
+        delay(5);
+        for(int i = 0; i < 4; i++) {
+            digitalWrite(this->index[i], HIGH);
+        }
+    }
+
 
 } display;
-
-
-
-// void draw_custom_char(int* custom_char, int pos){
-//     for(int i = 0; i < 7; i++) {
-//         digitalWrite(num[i], custom_char[i]);
-//     }
-//     for(int i = 0; i < 4; i++) {
-//         digitalWrite(index[i], HIGH);
-//         if(i == pos) {
-//             digitalWrite(index[i], LOW);
-//         }
-//     }
-//     delay(5);
-//     for(int i = 0; i < 4; i++) {
-//         digitalWrite(index[i], HIGH);
-//     }
-// }
